@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Zodiac File | Unsolved Case</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+      body {
+    background: radial-gradient(circle at top, #301010, #080808 65%);
+    color: #ffffff;
+}
+
+.card {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid #7a1515;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: red;
+    transform: translateY(-3px);
+}
+
+        /* HEADER */
+
+        header {
+            background: #181818;
+            padding: 22px 10px;
+            text-align: center;
+            border-bottom: 2px solid #a00000;
+        }
+
+        header h1 {
+            color: #e00000;
+            font-size: 27px;
+            letter-spacing: 3px;
+        }
+
+        header p {
+            color: #aaa;
+            margin-top: 8px;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: #151515;
+            padding: 18px 8px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 8px;
+            font-size: 13px;
+        }
+
+        nav a:hover {
+            color: red;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 430px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.75),
+                    rgba(0,0,0,0.95)
+                ),
+                url("https://images.unsplash.com/photo-1451187580459-43490279c0fa");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            color: white;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px red;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #ddd;
+            max-width: 550px;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            background: #a00000;
+            color: white;
+            text-decoration: none;
+            border: 1px solid #ff3333;
+            border-radius: 3px;
+        }
+
+        /* GENERAL SECTIONS */
+
+        .section {
+            padding: 35px 20px;
+        }
+
+        .section h2 {
+            color: #e00000;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        .section p {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        /* CASE CARDS */
+
+        .card {
+            background: #1d1d1d;
+            padding: 20px;
+            margin-top: 18px;
+            border-left: 3px solid #a00000;
+            border-radius: 5px;
+        }
+
+        .card h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            margin-bottom: 5px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #181818;
+            text-align: center;
+            padding: 25px 15px;
+            color: #888;
+            font-size: 12px;
+            border-top: 1px solid #333;
+        }
+      footer {
+    background: #111;
+    border-top: 2px solid #8b0000;
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 40px;
+    color: #aaa;
+}
+
+footer h3 {
+    color: #ff3333;
+    letter-spacing: 3px;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 8px;
+          }
+      .loader {
+    position: fixed;
+    inset: 0;
+    background: #080808;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: hideLoader 2s forwards;
+}
+
+.loader h1 {
+    color: #ff2222;
+    letter-spacing: 5px;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+@keyframes hideLoader {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+          }
+      #loader {
+    position: fixed;
+    inset: 0;
+    background: #080808;
+    color: #c62828;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: disappear 1s ease 3s forwards;
+}
+
+#loader p {
+    color: white;
+}
+
+@keyframes disappear {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+        }
+    </style>
+</head>
+
+<body>
+  <div id="loader">
+    <h2>THE ZODIAC KILLER</h2>
+    <p>Loading Case Files...</p>
+  </div>
+  <div class="loader">
+    <h1>THE ZODIAC FILES</h1>
+  </div>
+
+    <!-- HEADER -->
+
+    <header>
+        <h1>THE ZODIAC FILE</h1>
+        <p>UNSOLVED CASE • INVESTIGATION ARCHIVE</p>
+    </header>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#timeline">Timeline</a>
+      <a href="#letters">Letters</a>
+        <a href="#mystery">Mystery</a>
+      <a href="#letters">Letters</a>
+<a href="#timeline">Timeline</a>
+<a href="#ciphers">Ciphers</a>
+<a href="#decoder">Decoder</a>
+    </nav>
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+
+        <h2>WHO WAS THE ZODIAC?</h2>
+
+        <p>
+            One of America's most mysterious
+            unidentified criminals. Decades later,
+            the identity of the Zodiac Killer remains
+            officially unknown.
+        </p>
+
+        <a href="#about" class="button">
+            EXPLORE THE CASE
+        </a>
+
+    </section>
+
+    <!-- CASE RECORD -->
+
+    <section class="section">
+
+        <h2>CLASSIFIED CASE RECORD</h2>
+
+        <div class="card">
+            <h3>CASE NO. 001</h3>
+
+            <p>Subject: The Zodiac Killer</p>
+            <p>Category: Unsolved Criminal Case</p>
+            <p>Region: Northern California, USA</p>
+            <p>Status: Unsolved</p>
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="section" id="about">
+
+        <h2>CASE OVERVIEW</h2>
+
+        <p>
+            The Zodiac Killer was an unidentified
+            criminal linked to attacks in Northern
+            California during the late 1960s.
+
+            The case became widely known through
+            mysterious letters and coded messages
+            sent to newspapers.
+        </p>
+
+        <div class="card">
+            <h3>Confirmed Victims</h3>
+            <p>Five people were killed in the four confirmed attacks.</p>
+        </div>
+
+        <div class="card">
+            <h3>Location</h3>
+            <p>Northern California, USA.</p>
+        </div>
+
+        <div class="card">
+            <h3>Active Period</h3>
+            <p>1968–1969 (confirmed attacks).</p>
+        </div>
+
+    </section>
+
+    
+<!-- DETAILED CASE TIMELINE -->
+
+<section class="section" id="timeline">
+
+    <h2>THE CASE TIMELINE</h2>
+
+    <p>
+        Explore the major confirmed events
+        associated with the Zodiac Killer case.
+    </p>
+
+    <div class="card">
+        <h3>20 DECEMBER 1968</h3>
+        <p>LOCATION: LAKE HERMAN ROAD</p>
+        <p>
+            David Faraday and Betty Lou Jensen
+            were killed near Benicia, California.
+            This is considered the first confirmed
+            Zodiac attack.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>04 JULY 1969</h3>
+        <p>LOCATION: BLUE ROCK SPRINGS</p>
+        <p>
+            Darlene Ferrin was killed and
+            Michael Mageau survived an attack
+            in Vallejo, California.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>JULY 1969</h3>
+        <p>EVENT: THE FIRST LETTERS</p>
+        <p>
+            Newspapers received letters
+            containing a mysterious
+            408-character cipher.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>27 SEPTEMBER 1969</h3>
+        <p>LOCATION: LAKE BERRYESSA</p>
+        <p>
+            Bryan Hartnell survived an attack.
+            Cecelia Shepard later died from
+            her injuries.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>11 OCTOBER 1969</h3>
+        <p>LOCATION: SAN FRANCISCO</p>
+        <p>
+            Taxi driver Paul Stine was killed.
+            This became the fourth confirmed
+            Zodiac attack.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>DECEMBER 2020</h3>
+        <p>EVENT: THE 340 CIPHER SOLVED</p>
+        <p>
+            Independent codebreakers solved
+            the famous 340-character cipher.
+            However, it did not reveal the
+            killer's identity.
+        </p>
+    </div>
+
+</section>
+  
+<!-- LETTERS AND CIPHERS -->
+
+<section class="section" id="letters">
+
+    <h2>LETTERS & SECRET CIPHERS</h2>
+
+    <p>
+        The Zodiac Killer became widely known
+        for sending mysterious letters and
+        coded messages to newspapers.
+    </p>
+
+    <div class="card">
+        <h3>THE 408 CIPHER</h3>
+
+        <p>
+            In 1969, the Zodiac sent a
+            408-character coded message
+            to three newspapers.
+
+            Donald and Bettye Harden
+            successfully solved it.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>THE 340 CIPHER</h3>
+
+        <p>
+            Another famous message contained
+            340 characters.
+
+            It remained unsolved for 51 years
+            before being solved in December 2020
+            by independent codebreakers.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>THE ZODIAC SYMBOL</h3>
+
+        <p>
+            The Zodiac used a distinctive
+            crossed-circle symbol in his
+            letters and communications.
+
+            It became the most recognizable
+            symbol associated with the case.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>WHY ARE THE LETTERS IMPORTANT?</h3>
+
+        <p>
+            The letters helped investigators
+            connect communications to the case.
+            However, not every message attributed
+            to the Zodiac has been authenticated.
+        </p>
+    </div>
+
+</section>
+            
+             <!-- LETTERS -->
+<section id="letters" class="section">
+    <h2>Letters & Communications</h2>
+    <p>
+        The Zodiac Killer sent several letters to newspapers
+        during the late 1960s and early 1970s.
+    </p>
+
+    <div class="card">
+        <h3>The 1969 Communications</h3>
+        <p>
+            These communications became important evidence
+            in the investigation.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Unsolved Ciphers</h3>
+        <p>
+            Some messages remain a subject of historical
+            research and discussion.
+        </p>
+    </div>
+</section>
+
+
+    <!-- MYSTERY -->
+
+    <section class="section" id="mystery">
+
+        <h2>THE UNSOLVED MYSTERY</h2>
+
+        <p>
+            Despite decades of investigation,
+            the identity of the Zodiac Killer
+            has never been officially established.
+
+            The case remains one of America's
+            most discussed unsolved criminal cases.
+        </p>
+
+    </section>
+
+               <!-- TIMELINE -->
+<section id="timeline" class="section">
+    <h2>Historical Timeline</h2>
+
+    <div class="card">
+        <h3>1968</h3>
+        <p>First confirmed attacks in the Zodiac case.</p>
+    </div>
+
+    <div class="card">
+        <h3>1969</h3>
+        <p>The Zodiac began sending letters and ciphers to newspapers.</p>
+    </div>
+
+    <div class="card">
+        <h3>1970</h3>
+        <p>More communications and coded messages appeared.</p>
+    </div>
+
+    <div class="card">
+        <h3>Today</h3>
+        <p>The identity of the Zodiac Killer remains officially unresolved.</p>
+    </div>
+</section>
+
+    <!-- CIPHERS -->
+<section id="ciphers" class="section">
+    <h2>Famous Ciphers</h2>
+
+    <div class="card">
+        <h3>Z408 Cipher</h3>
+        <p>
+            Sent in 1969 and solved by a couple
+            within about a week.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Z340 Cipher</h3>
+        <p>
+            Sent in 1969 and solved in December 2020
+            by an international team.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Z13 Cipher</h3>
+        <p>
+            A short cipher that remains unsolved.
+        </p>
+    </div>
+</section>
+
+    <!-- CIPHER DECODER -->
+<section id="decoder" class="section">
+    <h2>Cipher Decoder</h2>
+    <p>Learn how a Caesar cipher works.</p>
+
+    <div class="card">
+        <input
+            type="text"
+            id="cipherText"
+            placeholder="Enter your message"
+        >
+
+        <button onclick="decodeCipher()">
+            Decode Message
+        </button>
+
+        <h3>Decoded Result:</h3>
+        <p id="result">Your result will appear here.</p>
+    </div>
+</section>
+
+<script>
+function decodeCipher() {
+    let text = document.getElementById("cipherText").value;
+
+    let decoded = text.replace(/[a-z]/gi, function(char) {
+        let base = char === char.toUpperCase() ? 65 : 97;
+        return String.fromCharCode(
+            (char.charCodeAt(0) - base - 3 + 26) % 26 + base
+        );
+    });
+
+    document.getElementById("result").textContent = decoded;
+}
+</script>
+  
+<section class="card">
+    <h2>Sources & References</h2>
+    <p>Information about this historical case:</p>
+
+    <ul>
+        <li>FBI – Historical Case Information</li>
+        <li>Britannica – Zodiac Killer</li>
+        <li>Newspaper Archives</li>
+    </ul>
+
+    <p>All information is presented for educational purposes.</p>
+</section>
+    <!-- FOOTER -->
+
+    <footer>
+        <p>THE ZODIAC FILE (UNSOLVED CASE)</p>
+        <p>Historical research • Facts • Investigation</p>
+        <p>Created as an educational project.</p>
+    </footer>
+
+  <!-- FOOTER -->
+<footer>
+    <h3>THE ZODIAC FILES</h3>
+    <p>An archive of an unsolved historical mystery.</p>
+    <p>© 2026 The Zodiac Files</p>
+    <p>Created for educational purposes.</p>
+</footer>
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+style="position:fixed; bottom:20px; right:20px; padding:12px 18px; background:#c62828; color:white; border:none; border-radius:8px; cursor:pointer;">
+↑ Back to Top
+  </button>
+  <script>
+window.addEventListener("load", function() {
+    setTimeout(function() {
+        document.getElementById("loader").style.display = "none";
+    }, 3000);
+});
+  </script>
+  <script>
+const text = "The Zodiac Killer";
+let index = 0;
+
+function typeText() {
+    if (index < text.length) {
+        document.getElementById("typing").textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 120);
+    }
+}
+
+typeText();
+  </script>
+</body>
+</html>
